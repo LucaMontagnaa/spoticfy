@@ -84,7 +84,8 @@ const updateArtista = (req, res) => {
             return res.status(500).send("Hubo error con la query");
         }
 
-        res.send("Se actualizó correctamente");
+        res.send("Se editó correctamente"); 
+
 
     });
 
