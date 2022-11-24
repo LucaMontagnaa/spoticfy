@@ -41,7 +41,7 @@ const getAlbum = (req, res) => {
         }
     */
 
-        conn.query('SELECT * FROM albumes WHERE id = ?', [req.params.id], (err, result) => {
+        conn.query('SELECT albumes.id, albumes.nombre, artistas.nombre AS nombre_artista FROM albumes INNER JOIN artistas ON albumes.artista = artistas.id WHERE albumes.id = ?', [req.params.id], (err, result) => {
             if (err) {
                 console.log("Hubo error con la query");
                 return res.status(500).send("Hubo error con la query");
@@ -116,7 +116,7 @@ const getCancionesByAlbum = (req, res) => {
             console.log("Hubo error con la query");
             return res.status(500).send("Hubo error con la query");
         }
-
+        console.log(result);
         res.json(result);
     })
 };

@@ -132,7 +132,6 @@ const getCancionesByArtista = (req, res) => {
             console.log("Hubo error con la query");
             return res.status(500).send("Hubo error con la query");
         }
-        console.log(result);
         res.json(result);
     })
 };

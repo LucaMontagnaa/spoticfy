@@ -25,6 +25,15 @@ const getCanciones = (_, res) => {
             ...
         ]
     */
+
+        conn.query('SELECT * FROM canciones', (err, result) => {
+            if (err) {
+                console.log("Hubo error con la query");
+                return res.status(500).send("Hubo error con la query");
+            }
+    
+            res.json(result);
+        })
 };
 
 const getCancion = (req, res) => {
@@ -41,6 +50,8 @@ const getCancion = (req, res) => {
             "reproducciones": "Reproducciones de la canción"
         }
     */
+
+
 };
 
 const createCancion = (req, res) => {
